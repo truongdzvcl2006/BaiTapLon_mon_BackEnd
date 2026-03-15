@@ -1,0 +1,80 @@
+﻿@model RealEstateAuction.Models.User
+
+@{
+    Layout = "_HomeLayout";
+    ViewData["Title"] = "Thông tin cá nhân";
+}
+
+<div class="container" style="margin-top: 120px; margin-bottom: 50px;">
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0">Thông tin cá nhân</h4>
+                </div>
+                <div class="card-body">
+                    @if (TempData["Success"] != null)
+                    {
+                        <div class="alert alert-success">@TempData["Success"]</div>
+                    }
+                    @if (TempData["Error"] != null)
+                    {
+                        <div class="alert alert-danger">@TempData["Error"]</div>
+                    }
+
+                    <form asp-action="UpdateProfile" method="post">
+                        <input type="hidden" name="id" value="@Model.Id" />
+                        
+                        <div class="mb-3">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-control" value="@Model.Email" readonly disabled />
+                            <small class="text-muted">Email không thể thay đổi</small>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Họ và tên</label>
+                            <input type="text" name="fullName" class="form-control" value="@Model.FullName" required />
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Tên đăng nhập</label>
+                            <input type="text" class="form-control" value="@Model.Username" readonly disabled />
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Số điện thoại</label>
+                            <input type="tel" name="phone" class="form-control" value="@Model.Phone" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Địa chỉ</label>
+                            <input type="text" name="address" class="form-control" value="@Model.Address" />
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Cập nhật thông tin</button>
+                        <a href="@Url.Action("Index", "Home")" class="btn btn-secondary">Quay lại</a>
+                    </form>
+
+                    <hr class="my-4" />
+
+                    <h5>Đổi mật khẩu</h5>
+                    <form asp-action="ChangePassword" method="post">
+                        <input type="hidden" name="id" value="@Model.Id" />
+                        
+                        <div class="mb-3">
+                            <label class="form-label">Mật khẩu hiện tại</label>
+                            <input type="password" name="currentPassword" class="form-control" required />
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Mật khẩu mới</label>
+                            <input type="password" name="newPassword" class="form-control" required />
+                        </div>
+
+                        <button type="submit" class="btn btn-warning">Đổi mật khẩu</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

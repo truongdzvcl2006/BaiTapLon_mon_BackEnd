@@ -1,0 +1,36 @@
+﻿@model RealEstateAuction.Models.Property
+
+<div class="text-center mt-5 animate__animated animate__fadeIn">
+
+    <h1>🏠 Hệ thống đấu giá bất động sản</h1>
+
+    <p class="lead">
+        Chào mừng bạn đến với hệ thống đấu giá bất động sản
+    </p>
+
+    <a asp-controller="Property" asp-action="Index"
+       class="btn btn-primary btn-lg mt-3">
+        Xem bất động sản
+    </a>
+
+</div>
+
+<h2>Thêm bất động sản</h2>
+
+<form asp-action="Create">
+
+    <div>
+        <label>Tên</label>
+        <input asp-for="Title" />
+    </div>
+
+    <div>
+        <label>Giá khởi điểm</label>
+        <input asp-for="Price" />
+    </div>
+
+    <br />
+
+    <button type="submit">Thêm</button>
+
+</form>

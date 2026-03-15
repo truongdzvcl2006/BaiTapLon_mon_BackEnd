@@ -1,0 +1,131 @@
+﻿@model IEnumerable<RealEstateAuction.Models.Property>
+
+<link rel="stylesheet" href="~/css/site.css" />
+
+<!-- NAVBAR -->
+
+<header class="navbar">
+
+    <div class="container nav-content">
+
+        <div class="logo">VILLA</div>
+
+        <nav class="menu">
+            <a href="#">Home</a>
+            <a href="#">Properties</a>
+            <a href="#">Auctions</a>
+            <a href="#">Contact</a>
+        </nav>
+
+        <button class="btn-primary">Schedule Visit</button>
+
+    </div>
+
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+
+        <h1>Find Your Dream Property</h1>
+
+        <p>Discover luxury villas, apartments and houses across Vietnam</p>
+
+        <button class="btn-hero">Browse Properties</button>
+
+    </div>
+
+</section>
+
+
+<!-- FEATURED -->
+
+<section class="featured">
+
+    <div class="container">
+
+        <h2>Featured Properties</h2>
+
+        <div class="property-grid">
+
+            @foreach (var item in Model)
+            {
+                <div class="property-card">
+
+                    <img src="@item.ImageUrl" />
+
+                    <div class="property-info">
+
+                        <h3>@item.Title</h3>
+
+                        <p class="location">@item.Location</p>
+
+                        <div class="price">
+                            @item.Price.ToString("N0") VNĐ
+                        </div>
+
+                        <button class="btn-card">
+                            View Details
+                        </button>
+
+                    </div>
+
+                </div>
+            }
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CTA -->
+
+<section class="cta">
+
+    <div class="container cta-box">
+
+        <h2>Start Your Property Auction Today</h2>
+
+        <p>Join thousands of investors buying and selling properties.</p>
+
+        <button class="btn-hero">Get Started</button>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer class="footer">
+
+    <div class="container footer-grid">
+
+        <div>
+            <h3>VILLA</h3>
+            <p>Premium Real Estate Platform</p>
+        </div>
+
+        <div>
+            <h4>Links</h4>
+            <p>Home</p>
+            <p>Properties</p>
+            <p>Contact</p>
+        </div>
+
+        <div>
+            <h4>Contact</h4>
+            <p>Email: info@villa.com</p>
+            <p>Phone: +84 999 999</p>
+        </div>
+
+    </div>
+
+</footer>

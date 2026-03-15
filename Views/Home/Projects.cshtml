@@ -1,0 +1,81 @@
+﻿@model IEnumerable<RealEstateAuction.Models.Property>
+
+@{
+    Layout = "_HomeLayout";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/Project.css" />
+}
+
+<section class="project-section">
+    <div class="project-wrapper">
+        <div class="project-header">
+            <h2 class="project-title">Bất Động Sản Cao Cấp</h2>
+            <p class="project-subtitle">Khám phá những bất động sản đẳng cấp nhất thị trường hiện nay</p>
+        </div>
+
+        @if (Model != null && Model.Any())
+        {
+            <div class="project-grid">
+                @foreach (var item in Model)
+                {
+                    <a href="@Url.Action("PropertyDetail", "Home", new { id = item.Id })" class="project-card-link">
+                        <div class="project-card">
+                            <div class="project-image-wrapper">
+                                <img src="@item.ImageUrl" alt="@item.Title" />
+                                @if (item.IsHot)
+                                {
+                                    <span class="project-badge hot">Hot</span>
+                                }
+                            </div>
+
+                            <div class="project-card-body">
+                                <div class="project-price">
+                                    @item.Price.ToString("N0") đ
+                                </div>
+
+                                <h3 class="project-name">
+                                    @item.Title
+                                </h3>
+
+                                <div class="project-location">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    @item.Location
+                                </div>
+
+                                <div class="project-info-grid">
+                                    <div class="project-info-item">
+                                        <strong>@item.Area</strong>
+                                        <span>m²</span>
+                                    </div>
+                                    <div class="project-info-item">
+                                        <strong>@item.Bedrooms</strong>
+                                        <span>PN</span>
+                                    </div>
+                                    <div class="project-info-item">
+                                        <strong>@item.Bathrooms</strong>
+                                        <span>PT</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                }
+            </div>
+        }
+        else
+        {
+            <div class="project-empty">
+                <i class="fas fa-building"></i>
+                <p>Không có dự án nào để hiển thị.</p>
+                <a href="@Url.Action("Index", "Home")" class="btn">Quay lại trang chủ</a>
+            </div>
+        }
+    </div>
+</section>
+
+@section Scripts {
+    <script src="https://kit.fontawesome.com/your-code.js"></script>
+    <script src="~/js/project.js"></script>
+}

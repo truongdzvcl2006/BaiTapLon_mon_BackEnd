@@ -1,0 +1,111 @@
+﻿<!-- Views/Admin/Settings.cshtml -->
+@{
+    Layout = "_AdminLayout";
+    ViewData["Title"] = "Cài đặt";
+}
+
+<div class="container-fluid">
+    <h1 class="mb-4">Cài đặt hệ thống</h1>
+
+    <div class="row">
+        <div class="col-md-3">
+            <div class="list-group">
+                <a href="#general" class="list-group-item list-group-item-action active" data-bs-toggle="list">
+                    <i class="fas fa-cog"></i> Chung
+                </a>
+                <a href="#payment" class="list-group-item list-group-item-action" data-bs-toggle="list">
+                    <i class="fas fa-credit-card"></i> Thanh toán
+                </a>
+                <a href="#email" class="list-group-item list-group-item-action" data-bs-toggle="list">
+                    <i class="fas fa-envelope"></i> Email
+                </a>
+                <a href="#security" class="list-group-item list-group-item-action" data-bs-toggle="list">
+                    <i class="fas fa-shield-alt"></i> Bảo mật
+                </a>
+                <a href="#backup" class="list-group-item list-group-item-action" data-bs-toggle="list">
+                    <i class="fas fa-database"></i> Sao lưu
+                </a>
+            </div>
+        </div>
+
+        <div class="col-md-9">
+            <div class="tab-content">
+                <!-- Cài đặt chung -->
+                <div class="tab-pane active" id="general">
+                    <div class="admin-card">
+                        <h5>Thông tin chung</h5>
+                        <form>
+                            <div class="mb-3">
+                                <label class="form-label">Tên công ty</label>
+                                <input type="text" class="form-control" value="RealEstate Auction">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Email liên hệ</label>
+                                <input type="email" class="form-control" value="contact@realestate.com">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Số điện thoại</label>
+                                <input type="tel" class="form-control" value="1900 1234">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Địa chỉ</label>
+                                <textarea class="form-control" rows="3">111 Phú Lương, Hà Đông, Hà Nội</textarea>
+                            </div>
+                            <button class="btn btn-primary">Lưu thay đổi</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Cài đặt thanh toán -->
+                <div class="tab-pane" id="payment">
+                    <div class="admin-card">
+                        <h5>Cấu hình thanh toán</h5>
+                        <form>
+                            <div class="mb-3">
+                                <label class="form-label">Phí đấu giá (%)</label>
+                                <input type="number" class="form-control" value="5">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Tiền đặt cọc (VND)</label>
+                                <input type="number" class="form-control" value="50000000">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Phương thức thanh toán</label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" checked>
+                                    <label class="form-check-label">Chuyển khoản ngân hàng</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" checked>
+                                    <label class="form-check-label">Ví điện tử</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox">
+                                    <label class="form-check-label">Thẻ tín dụng</label>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary">Lưu thay đổi</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Sao lưu dữ liệu -->
+                <div class="tab-pane" id="backup">
+                    <div class="admin-card">
+                        <h5>Sao lưu dữ liệu</h5>
+                        <div class="mb-3">
+                            <p>Lần sao lưu cuối: 15/03/2026 10:30</p>
+                            <p>Dung lượng: 256 MB</p>
+                        </div>
+                        <button class="btn btn-primary">
+                            <i class="fas fa-download"></i> Sao lưu ngay
+                        </button>
+                        <button class="btn btn-success">
+                            <i class="fas fa-undo"></i> Khôi phục
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

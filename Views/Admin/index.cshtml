@@ -1,0 +1,78 @@
+﻿<!-- Views/Admin/Index.cshtml -->
+@{
+    Layout = "_AdminLayout";
+    ViewData["Title"] = "Dashboard";
+}
+
+<!-- THÊM DÒNG NÀY ĐỂ DEBUG - SẼ HIỂN THỊ NẾU VÀO ĐƯỢC TRANG ADMIN -->
+<div style="background: #28a745; color: white; padding: 15px; margin-bottom: 20px; border-radius: 5px; text-align: center;">
+    <h3>✅ ĐÃ VÀO TRANG ADMIN THÀNH CÔNG</h3>
+    <p>Xin chào: <strong>@ViewBag.AdminName</strong> | Email: @ViewBag.AdminEmail | Lần cuối: @ViewBag.LastLogin</p>
+</div>
+
+<div class="container-fluid">
+    <h1 class="mb-4">Dashboard Admin</h1>
+    
+    <div class="row">
+        <div class="col-md-3">
+            <div class="admin-card">
+                <div class="admin-card-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div class="admin-card-content">
+                    <h3>@ViewBag.TotalUsers</h3>
+                    <p>Tổng người dùng</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-3">
+            <div class="admin-card">
+                <div class="admin-card-icon">
+                    <i class="fas fa-building"></i>
+                </div>
+                <div class="admin-card-content">
+                    <h3>@ViewBag.TotalProperties</h3>
+                    <p>Bất động sản</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-3">
+            <div class="admin-card">
+                <div class="admin-card-icon">
+                    <i class="fas fa-gavel"></i>
+                </div>
+                <div class="admin-card-content">
+                    <h3>@ViewBag.TotalAuctions</h3>
+                    <p>Phiên đấu giá</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-3">
+            <div class="admin-card">
+                <div class="admin-card-icon">
+                    <i class="fas fa-money-bill"></i>
+                </div>
+                <div class="admin-card-content">
+                    <h3>@ViewBag.TotalBids</h3>
+                    <p>Lượt đấu giá</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Thêm nút giữ session -->
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="admin-card">
+                <h4>Thông tin session</h4>
+                <p><strong>Session ID:</strong> @Context.Session.Id</p>
+                <p><strong>User ID:</strong> @Context.Session.GetInt32("UserId")</p>
+                <p><strong>User Role:</strong> @Context.Session.GetInt32("UserRoleId")</p>
+                <p><strong>User Email:</strong> @Context.Session.GetString("UserEmail")</p>
+            </div>
+        </div>
+    </div>
+</div>

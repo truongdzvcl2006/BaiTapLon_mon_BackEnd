@@ -1,0 +1,64 @@
+﻿<!-- Views/Admin/Deposits.cshtml -->
+@{
+    Layout = "_AdminLayout";
+    ViewData["Title"] = "Quản lý đặt cọc";
+}
+
+<div class="container-fluid">
+    <h1 class="mb-4">Quản lý đặt cọc</h1>
+
+    <!-- Bộ lọc -->
+    <div class="admin-card mb-4">
+        <div class="row">
+            <div class="col-md-3">
+                <input type="text" class="form-control" placeholder="Mã đặt cọc">
+            </div>
+            <div class="col-md-3">
+                <select class="form-control">
+                    <option>Tất cả trạng thái</option>
+                    <option>Chờ xác nhận</option>
+                    <option>Đã xác nhận</option>
+                    <option>Hoàn cọc</option>
+                </select>
+            </div>
+            <div class="col-md-2">
+                <button class="btn btn-primary">Tìm kiếm</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Danh sách đặt cọc -->
+    <div class="admin-card">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Mã ĐC</th>
+                        <th>Người đặt</th>
+                        <th>Bất động sản</th>
+                        <th>Số tiền</th>
+                        <th>Ngày đặt</th>
+                        <th>Hạn chót</th>
+                        <th>Trạng thái</th>
+                        <th>Thao tác</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>#DC001</td>
+                        <td>Nguyễn Văn A</td>
+                        <td>Căn hộ Vinhomes Q9</td>
+                        <td>50,000,000 đ</td>
+                        <td>15/03/2026</td>
+                        <td>22/03/2026</td>
+                        <td><span class="badge bg-warning">Chờ xác nhận</span></td>
+                        <td>
+                            <button class="btn btn-sm btn-success"><i class="fas fa-check"></i></button>
+                            <button class="btn btn-sm btn-danger"><i class="fas fa-times"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

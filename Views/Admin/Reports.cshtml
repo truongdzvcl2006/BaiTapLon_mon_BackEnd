@@ -1,0 +1,104 @@
+﻿<!-- Views/Admin/Reports.cshtml -->
+@{
+    Layout = "_AdminLayout";
+    ViewData["Title"] = "Báo cáo";
+}
+
+<div class="container-fluid">
+    <h1 class="mb-4">Báo cáo thống kê</h1>
+
+    <!-- Bộ lọc thời gian -->
+    <div class="admin-card mb-4">
+        <div class="row">
+            <div class="col-md-3">
+                <label>Từ ngày</label>
+                <input type="date" class="form-control">
+            </div>
+            <div class="col-md-3">
+                <label>Đến ngày</label>
+                <input type="date" class="form-control">
+            </div>
+            <div class="col-md-2">
+                <label>&nbsp;</label>
+                <button class="btn btn-primary form-control">Xem báo cáo</button>
+            </div>
+            <div class="col-md-2">
+                <label>&nbsp;</label>
+                <button class="btn btn-success form-control">
+                    <i class="fas fa-file-excel"></i> Xuất Excel
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Biểu đồ -->
+    <div class="row mb-4">
+        <div class="col-md-6">
+            <div class="admin-card">
+                <h5>Giao dịch theo tháng</h5>
+                <canvas id="transactionChart" style="height: 300px;"></canvas>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="admin-card">
+                <h5>Phân loại bất động sản</h5>
+                <canvas id="propertyChart" style="height: 300px;"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bảng tổng hợp -->
+    <div class="admin-card">
+        <h5>Báo cáo chi tiết</h5>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Ngày</th>
+                        <th>Số giao dịch</th>
+                        <th>Doanh thu</th>
+                        <th>Phí hoa hồng</th>
+                        <th>Lợi nhuận</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>01/03/2026</td>
+                        <td>5</td>
+                        <td>15,000,000,000 đ</td>
+                        <td>750,000,000 đ</td>
+                        <td>14,250,000,000 đ</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    // Biểu đồ giao dịch
+    new Chart(document.getElementById('transactionChart'), {
+    type: 'line',
+    data: {
+    labels: ['T1', 'T2', 'T3', 'T4', 'T5', 'T6'],
+    datasets: [{
+    label: 'Giao dịch',
+    data: [12, 19, 15, 17, 24, 23],
+    borderColor: '#4e73df'
+    }]
+    }
+    });
+
+    // Biểu đồ phân loại
+    new Chart(document.getElementById('propertyChart'), {
+    type: 'doughnut',
+    data: {
+    labels: ['Căn hộ', 'Nhà phố', 'Đất nền', 'Biệt thự'],
+    datasets: [{
+    data: [45, 25, 20, 10],
+    backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc', '#f6c23e']
+    }]
+    }
+    });
+</script>

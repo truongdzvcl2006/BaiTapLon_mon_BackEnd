@@ -1,0 +1,52 @@
+﻿@* Views/Home/PropertyDetail.cshtml *@
+@model RealEstateAuction.Models.PropertyDetailViewModel
+
+@{
+    Layout = "_HomeLayout";
+    ViewData["Title"] = Model?.Title ?? "Chi tiết bất động sản";
+}
+
+
+@if (Model != null)
+{
+    <div class="container" style="margin-top: 50px; margin-bottom: 50px;">
+        <div class="row">
+            <div class="col-md-6">
+                <img src="@Model.MainImageUrl" class="img-fluid rounded" alt="@Model.Title" style="width: 100%; max-height: 400px; object-fit: cover;">
+            </div>
+            <div class="col-md-6">
+                <h1>@Model.Title</h1>
+                <h2 class="text-danger">@Model.Price.ToString("N0") đ</h2>
+                <p><i class="fas fa-map-marker-alt"></i> @Model.Location</p>
+                <p>@Model.Description</p>
+
+                <div class="row mt-4">
+                    <div class="col-4 text-center border p-3">
+                        <strong>@Model.Area m²</strong><br>
+                        <span>Diện tích</span>
+                    </div>
+                    <div class="col-4 text-center border p-3">
+                        <strong>@Model.Bedrooms</strong><br>
+                        <span>Phòng ngủ</span>
+                    </div>
+                    <div class="col-4 text-center border p-3">
+                        <strong>@Model.Bathrooms</strong><br>
+                        <span>Phòng tắm</span>
+                    </div>
+                </div>
+
+                <div class="mt-4">
+                    <a href="@Url.Action("Projects", "Home")" class="btn btn-secondary">← Quay lại</a>
+                    <a href="#" class="btn btn-primary">Liên hệ ngay</a>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="container text-center" style="margin-top: 100px;">
+        <h2>Không tìm thấy sản phẩm!</h2>
+        <a href="@Url.Action("Projects", "Home")" class="btn btn-primary mt-3">Quay lại trang dự án</a>
+    </div>
+}
