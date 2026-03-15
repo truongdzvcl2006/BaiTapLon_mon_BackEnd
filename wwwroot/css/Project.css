@@ -1,0 +1,495 @@
+﻿/* Project.css - Styles cho trang dự án */
+
+/* Container chính */
+.project-section {
+    padding: 80px 20px;
+    background-color: var(--light-bg, #f8f9fa);
+    min-height: 100vh;
+}
+
+.project-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Title section */
+.project-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.project-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--secondary-color, #2c3e50);
+    margin-bottom: 15px;
+    position: relative;
+    display: inline-block;
+}
+
+    .project-title::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background: var(--primary-color, #4e73df);
+        border-radius: 2px;
+    }
+
+.project-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-color, #7f8c8d);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Grid layout */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 30px;
+    padding: 20px 0;
+}
+
+/* Card styles */
+.project-card {
+    background: var(--white, #ffffff);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm, 0 5px 15px rgba(0, 0, 0, 0.08));
+    transition: var(--transition, all 0.3s ease);
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+    .project-card:hover {
+        transform: translateY(-8px);
+        box-shadow: var(--shadow-lg, 0 15px 40px rgba(0, 0, 0, 0.15));
+    }
+
+/* Image container */
+.project-image-wrapper {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 16/9;
+    background: #f0f0f0;
+}
+
+.project-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.project-card:hover img {
+    transform: scale(1.1);
+}
+
+/* Image overlay - chỉ hiển thị khi cần */
+.project-image-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    color: white;
+    padding: 20px 15px 15px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.project-card:hover .project-image-overlay {
+    opacity: 1;
+}
+
+.project-image-overlay h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: white;
+}
+
+.project-image-overlay p {
+    margin: 5px 0 0;
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.9);
+}
+
+/* Card body */
+.project-card-body {
+    padding: 20px;
+    background: var(--white, #ffffff);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Price */
+.project-price {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color, #4e73df);
+    margin-bottom: 10px;
+    line-height: 1.3;
+}
+
+/* Name */
+.project-name {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--secondary-color, #2c3e50);
+    margin: 0 0 8px 0;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Location */
+.project-location {
+    font-size: 0.95rem;
+    color: var(--text-color, #7f8c8d);
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+    .project-location i,
+    .project-location svg {
+        font-size: 1rem;
+        color: var(--primary-color, #4e73df);
+        flex-shrink: 0;
+    }
+
+/* Info grid */
+.project-info-grid {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 15px;
+    border-top: 1px solid #ecf0f1;
+    margin-top: auto;
+}
+
+.project-info-item {
+    text-align: center;
+    flex: 1;
+}
+
+    .project-info-item strong {
+        display: block;
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--secondary-color, #2c3e50);
+        margin-bottom: 4px;
+    }
+
+    .project-info-item span {
+        font-size: 0.85rem;
+        color: #95a5a6;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+/* Badge cho các trạng thái */
+.project-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: var(--primary-color, #4e73df);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    z-index: 2;
+    box-shadow: var(--shadow-sm, 0 2px 5px rgba(0,0,0,0.1));
+}
+
+    .project-badge.sold {
+        background: #e74c3c;
+    }
+
+    .project-badge.hot {
+        background: #f39c12;
+    }
+
+/* Empty state */
+.project-empty {
+    text-align: center;
+    padding: 60px 20px;
+    background: var(--white, #ffffff);
+    border-radius: 12px;
+    box-shadow: var(--shadow-sm, 0 5px 15px rgba(0, 0, 0, 0.08));
+}
+
+    .project-empty i {
+        font-size: 4rem;
+        color: #ddd;
+        margin-bottom: 20px;
+    }
+
+    .project-empty p {
+        font-size: 1.2rem;
+        color: var(--text-color, #7f8c8d);
+        margin-bottom: 20px;
+    }
+
+    .project-empty .btn {
+        display: inline-block;
+        padding: 10px 30px;
+        background: var(--primary-color, #4e73df);
+        color: white;
+        text-decoration: none;
+        border-radius: 30px;
+        transition: var(--transition, all 0.3s ease);
+    }
+
+        .project-empty .btn:hover {
+            background: var(--primary-dark, #3a5bbf);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md, 0 5px 15px rgba(0,0,0,0.1));
+        }
+
+/* Loading skeleton */
+.project-skeleton {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+    border-radius: 12px;
+    height: 300px;
+}
+
+@keyframes loading {
+    0% {
+        background-position: 200% 0;
+    }
+
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* Animation cho cards */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.project-card {
+    animation: fadeInUp 0.6s ease forwards;
+    opacity: 0;
+}
+
+    /* Stagger animation */
+    .project-card:nth-child(1) {
+        animation-delay: 0.1s;
+    }
+
+    .project-card:nth-child(2) {
+        animation-delay: 0.2s;
+    }
+
+    .project-card:nth-child(3) {
+        animation-delay: 0.3s;
+    }
+
+    .project-card:nth-child(4) {
+        animation-delay: 0.4s;
+    }
+
+    .project-card:nth-child(5) {
+        animation-delay: 0.5s;
+    }
+
+    .project-card:nth-child(6) {
+        animation-delay: 0.6s;
+    }
+
+    .project-card:nth-child(7) {
+        animation-delay: 0.7s;
+    }
+
+    .project-card:nth-child(8) {
+        animation-delay: 0.8s;
+    }
+
+/* Responsive */
+@media screen and (max-width: 992px) {
+    .project-section {
+        padding: 60px 15px;
+    }
+
+    .project-title {
+        font-size: 2.2rem;
+    }
+
+    .project-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 25px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .project-section {
+        padding: 40px 15px;
+    }
+
+    .project-title {
+        font-size: 2rem;
+    }
+
+    .project-subtitle {
+        font-size: 1rem;
+    }
+
+    .project-grid {
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        gap: 20px;
+    }
+
+    .project-price {
+        font-size: 1.3rem;
+    }
+
+    .project-name {
+        font-size: 1.1rem;
+    }
+
+    .project-info-item strong {
+        font-size: 1rem;
+    }
+
+    .project-info-item span {
+        font-size: 0.8rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .project-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .project-card {
+        max-width: 100%;
+    }
+
+    .project-title {
+        font-size: 1.75rem;
+    }
+
+    .project-image-wrapper {
+        aspect-ratio: 16/10;
+    }
+}
+
+/* Print styles */
+@media print {
+    .project-card {
+        break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid #ddd;
+    }
+
+        .project-card:hover {
+            transform: none;
+        }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+    .project-card {
+        border: 2px solid #000;
+    }
+
+    .project-price {
+        color: #000;
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    .project-section {
+        background-color: #1a1a1a;
+    }
+
+    .project-card {
+        background: #2d2d2d;
+    }
+
+    .project-title {
+        color: #fff;
+    }
+
+    .project-name {
+        color: #fff;
+    }
+
+    .project-location,
+    .project-subtitle {
+        color: #b0b0b0;
+    }
+
+    .project-info-item strong {
+        color: #fff;
+    }
+
+    .project-info-item span {
+        color: #b0b0b0;
+    }
+
+    .project-info-grid {
+        border-top-color: #404040;
+    }
+
+    .project-card-body {
+        background: #2d2d2d;
+    }
+}
+/* Project.css - Thêm vào cuối file */
+
+/* Style cho link bao bọc card */
+.project-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+    .project-card-link:hover {
+        text-decoration: none;
+        color: inherit;
+    }
+
+        /* Đảm bảo card vẫn giữ nguyên hiệu ứng khi hover */
+        .project-card-link:hover .project-card {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg, 0 15px 40px rgba(0, 0, 0, 0.15));
+        }
+
+/* Thêm cursor pointer cho card */
+.project-card {
+    cursor: pointer;
+    transition: var(--transition, all 0.3s ease);
+}
+
+    /* Hiệu ứng nhấn click */
+    .project-card:active {
+        transform: scale(0.98);
+    }

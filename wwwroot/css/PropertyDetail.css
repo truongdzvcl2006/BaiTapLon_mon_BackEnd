@@ -1,0 +1,41 @@
+﻿.debug-info {
+    background: #f0f0f0;
+    padding: 20px;
+    margin: 20px;
+    border-left: 4px solid #4e73df;
+}
+
+.property-container {
+    max-width: 1200px;
+    margin: 100px auto 50px;
+    padding: 0 20px;
+}
+
+.property-image {
+    width: 100%;
+    max-height: 500px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.property-title {
+    font-size: 2rem;
+    color: #2c3e50;
+    margin: 20px 0;
+}
+
+.property-price {
+    font-size: 1.8rem;
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+.back-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #4e73df;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
